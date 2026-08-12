@@ -1,69 +1,93 @@
-# Axiom Hive / XPII: Master Technical & Governance Specification
+# Axiom Hive / XPII Core Technical and Governance Specification
 
-**Author / Developer:** Nicholas Michael Grossi  
-**Principal Architects & Contributors:** Alexis M. Adams, Caden McCullen  
-**Version:** 3.0 (Consolidated Professional Release)  
-**Date:** August 2026  
+**Document status:** Proposed technical design; not an implementation audit, certification, or legal opinion.
+**Document attribution:** Nicholas Michael Grossi is identified as author/developer in the supplied materials; Alexis M. Adams and Caden McCullen are identified there as contributors. This statement does not determine ownership or rights.
+**Version:** 4.0 — controlled public release
+**Review date:** August 12, 2026
 
----
+## 1. Objective and scope
 
-## 1. Executive Overview and Architectural Objectives
+This specification defines the proposed control architecture for Axiom Hive / XPII. The intended outcome is a **rule-governed, human-supervised AI workflow** that separates deterministic software controls from model-derived content, preserves reviewable records, and requires defined human authorization for material actions.
 
-The **Axiom Hive / XPII** platform is a high-assurance, deterministic AI execution and governance environment designed for complex organizational workflows, automated multi-agent orchestration, and rigorous regulatory compliance [1]. This specification codifies the architectural principles, reasoning pipelines, and governance controls required to transition the framework from a conceptual draft into a legally defensible, enterprise-grade system.
+> **Scope boundary:** This document specifies intended requirements. It does not establish that the described controls have been implemented, independently tested, certified, or found compliant with a law or standard.
 
-The core philosophy of the platform rests on **Human-Centric Technical Accountability (HCTA)** and **Forensic Evidentiary Mechanics**, which replace subjective narrative interpretation with objective, rule-validated, and cryptographically verifiable execution traces [2].
+The National Institute of Standards and Technology (NIST) describes its AI Risk Management Framework (AI RMF) as voluntary guidance for incorporating trustworthiness considerations into the design, development, use, and evaluation of AI systems.[1] This specification therefore uses the AI RMF as a design reference rather than a compliance assertion.
 
----
+## 2. Defined terms
 
-## 2. Core Architectural Framework
+| Term | Definition used in this specification |
+|---|---|
+| **Rule-governed workflow** | A workflow bounded by explicit schemas, policies, access controls, and validation rules. |
+| **Deterministic control** | A control that returns a defined result for the same input and system state, such as a schema validator, access-control rule, or hash function. |
+| **Model-derived content** | Content produced by a statistical or machine-learning component and therefore subject to task-specific evaluation. |
+| **Evidence traceability** | Records sufficient to reconstruct relevant inputs, configurations, approvals, events, and outputs for review. |
+| **Material action** | A defined action that can create legal, financial, safety, rights-affecting, or irreversible external consequences. |
 
-The platform is structured into a modular, multi-layer architecture designed to decouple AI reasoning from direct execution authority while maintaining strict adherence to data minimization and schema validation.
+## 3. Architectural requirements
 
-### 2.1 The Six-Layer Governance Model
-The platform enforces operational integrity through six distinct functional and governance tiers:
+The system SHALL implement the following proposed control layers. Each layer requires implementation evidence and test records before any external performance or assurance claim is made.
 
-| Layer | Functional Designation | Core Mechanism | Compliance Objective |
+| ID | Control layer | Requirement | Minimum acceptance evidence |
 |---|---|---|---|
-| **Layer 1** | Ingestion & Schema Parsing | Deterministic regex boundaries, type checking, and format standardization. | Input data integrity and sanitization |
-| **Layer 2** | Algorithmic Prompt Chaining (APCG) | Constrained decoding, JSON schema alignment, and multi-step reasoning validation. | Mitigating hallucinations and structural drift |
-| **Layer 3** | Human-Centric Governance (AL-EOMF) | Coercion detection, dignity gating, and mandatory human-in-the-loop sign-off. | Upholding ethical standards and human supremacy |
-| **Layer 4** | Secure Storage & Indexing | Encrypted NoSQL/relational storage with strict data partitioning and immutable logging. | Confidentiality and audit readiness |
-| **Layer 5** | Cryptographic & Audit Tracing | Cryptographic hashing of execution traces, state verification, and non-repudiation. | Forensic traceability and audit logs |
-| **Layer 6** | Enterprise Integration & API | Role-based access control (RBAC), secure REST/gRPC endpoints, and federated auth. | Secure interoperability |
+| AR-01 | Ingestion and schema validation | The system SHALL validate input structure, type, and permitted fields before downstream processing. | Versioned schemas, negative-test results, and rejection handling records. |
+| AR-02 | Workflow orchestration | The system SHALL preserve the identity and version of each policy, prompt template, model configuration, and workflow step used for a material output. | Replay record demonstrating retrieval of the applicable configuration. |
+| AR-03 | Policy gates | The system SHALL apply explicit rules to route, reject, or require human review for defined high-impact or restricted requests. | Rule inventory, coverage report, change log, and exception samples. |
+| AR-04 | Human authorization | The system SHALL require a designated human approver before a defined material action is executed. | Authority matrix and sampled approval records. |
+| AR-05 | Audit records | The system SHALL record relevant input identifiers, configuration versions, gate outcomes, approvals, and output identifiers. | Retention policy, integrity test, and access-control records. |
+| AR-06 | Data minimization | The system SHALL limit collection and retention to data fields necessary for the documented purpose. | Data inventory, data-flow diagram, retention/deletion test, and privacy review. |
+| AR-07 | External integration | The system SHALL apply authentication, authorization, rate limits, and logging to external interfaces. | Interface specification, access-control tests, and monitoring evidence. |
 
----
+NIST characterizes formal methods as mathematically based techniques for specifying and verifying properties of software and systems. It also notes that testing remains necessary because assumptions in a proof may not hold when a specification is mapped to implementation.[2] Accordingly, rule definitions and schemas may be verified as software artifacts, while claims about broader model behavior require separate testing.
 
-## 3. Human-Centric Ethical & Operational Monitoring Framework (AL-EOMF)
+## 4. Human supervision and authority allocation
 
-To ensure that AI-driven orchestration never compromises human autonomy or legal compliance, the platform implements the **AL-EOMF** protocol.
+The proposed governance model assigns material decision authority to defined human roles. The system MAY perform reversible, bounded functions such as syntax validation, routing, data classification, and draft generation. It MUST NOT perform a material action without the approval conditions defined for that action.
 
-### 3.1 Coercion Detection and Response Pathways
-The system continuously evaluates incoming instructions and conversational context for coercive markers, emotional manipulation, or rights-violating directives.
+The Federal Aviation Administration’s AI safety-assurance roadmap uses similar systems-engineering language: AI is to be treated as a tool, not a person, and responsibility for system requirements is allocated to designers and responsible human roles.[3] This source is used only as an engineering reference; it does not certify this design for aviation or any other regulated use.
 
-1.  **Pathway 1 (Educational Mode):** Triggered by minor, indirect coercive markers or ambiguous intent. The system responds with pedagogical redirection, emphasizing non-coercive, dignity-respecting reasoning [3].
-2.  **Pathway 2 (Neutralization Mode):** Triggered by clear coercive logic. The system refuses participation in the coercive objective and redirects the actor toward autonomy-respecting alternatives.
-3.  **Pathway 3 (Integrity Enforcement):** Triggered by severe threats, imminent harm, or explicit rights-violating instructions. The system immediately terminates the pathway, preserves secure audit evidence, and escalates to human operators.
+| Action category | System role | Human requirement |
+|---|---|---|
+| Input validation and routing | Execute defined rules | Review exception paths. |
+| Draft generation or summarization | Produce clearly labeled model-derived content | Review before material external use. |
+| Account, payment, rights, safety, or legal action | Prepare a proposed action only | Explicit authorization by the designated human role. |
+| Compliance or regulatory filing | Prepare supporting records only | Legal or compliance owner approval. |
 
-### 3.2 Human Operator Supremacy Clause
-In accordance with platform governance rules, the AI engine possesses **no autonomous execution authority** over material safety, legal, financial, or rights-altering outcomes [4]. 
-*   **Permitted Autonomous Actions:** Reversible educational messaging, schema validation, ingestion filtering, and immutable audit logging.
-*   **Prohibited Autonomous Actions:** Account termination, financial transfers, external compliance reporting, or any irreversible operational intervention without explicit multi-party human approval.
+## 5. Evidence traceability controls
 
----
+The proposed architecture uses execution records, integrity checks, and controlled retention to support review. A record may help establish what a system processed or produced; it does not by itself establish that the content is true, compliant, or admissible in a proceeding.
 
-## 4. Technical Builders and Reasoning Engine
+Federal Rule of Evidence 901 requires a proponent to provide evidence sufficient to support a finding that an item is what the proponent claims. For a process or system, the proponent must describe the process and show that it produces an accurate result.[4] Any evidentiary use therefore requires context-specific legal review, provenance evidence, and applicable chain-of-custody procedures.
 
-The platform provides modular builders to operationalize complex workflows:
+## 6. Validation plan
 
-*   **Schema Builder:** Establishes rigorous data models and enforces strict input/output contracts across all agent interactions.
-*   **Algorithmic Prompt Chain (APC) Builder:** Orchestrates multi-agent pipelines where intermediate outputs are programmatically validated against JSON schemas before passing to downstream steps.
-*   **Dataset Builder:** Manages secure, minimized datasets for specialized analytical tasks while stripping unnecessary personally identifiable information (PII) at ingest.
+Before using external statements such as “implemented,” “aligned,” “assessed,” or “high assurance,” the project SHALL complete the following sequence.
 
----
+1. **Specify:** Define intended use, excluded use, system boundaries, decision rights, and measurable requirements.
+2. **Implement:** Version-control schemas, rules, prompts, model configurations, logging logic, and access-control policies.
+3. **Test:** Run unit, integration, negative, adversarial, recovery, and retention/deletion tests.
+4. **Evaluate:** Measure schema conformance, rule coverage, override frequency, replay completeness, access-control failures, and human-approval enforcement.
+5. **Review:** Obtain independent technical review appropriate to the use case and qualified legal review before making legal, privacy, payment, or regulatory claims.
+6. **Maintain:** Re-test following material changes to models, rules, data sources, dependencies, or deployment context.
 
-## 5. References
+NIST’s AI test, evaluation, validation, and verification (TEVV) program emphasizes that measurements and evaluations are context dependent and that characteristics such as accuracy, reliability, safety, security, privacy, transparency, and harmful-bias mitigation require appropriate evidence.[5]
 
-[1]: https://www.nist.gov/itl/ai-risk-management-framework "NIST AI Risk Management Framework"
-[2]: https://truescreen.io/articles/admissibility-digital-evidence-guide/ "Admissibility of Digital Evidence in Court: 2026 Guide"
-[3]: https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai "European Commission - AI Act"
-[4]: https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6740438 "AI Governance Frameworks: ISO/IEC 42001, NIST AI RMF, and the EU AI Act"
+## 7. Constraints
+
+The platform documentation MUST NOT state or imply that the proposed architecture:
+
+- guarantees truth, safety, privacy, security, legal compliance, or regulatory certification;
+- converts model-derived content into legally admissible evidence by itself;
+- eliminates payment, privacy, security, or governance obligations; or
+- operates autonomously beyond the authority explicitly assigned in a controlled workflow.
+
+## 8. References
+
+[1] National Institute of Standards and Technology. “AI Risk Management Framework.” *NIST*, https://www.nist.gov/itl/ai-risk-management-framework. Accessed 12 Aug. 2026.
+
+[2] National Institute of Standards and Technology. “Formal Methods and Combinatorial Testing.” *Computer Security Resource Center*, updated 8 June 2026, https://csrc.nist.gov/projects/automated-combinatorial-testing-for-software/autonomous-systems-assurance/formal-methods. Accessed 12 Aug. 2026.
+
+[3] Federal Aviation Administration. *Roadmap for Artificial Intelligence Safety Assurance: Version I*. 23 July 2024, https://www.faa.gov/media/82891. Accessed 12 Aug. 2026.
+
+[4] Legal Information Institute. “Rule 901. Authenticating or Identifying Evidence.” *Federal Rules of Evidence*, Cornell Law School, https://www.law.cornell.edu/rules/fre/rule_901. Accessed 12 Aug. 2026.
+
+[5] National Institute of Standards and Technology. “AI Test, Evaluation, Validation and Verification (TEVV).” *NIST*, https://www.nist.gov/ai-test-evaluation-validation-and-verification-tevv. Accessed 12 Aug. 2026.

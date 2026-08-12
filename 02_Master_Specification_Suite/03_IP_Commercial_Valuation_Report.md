@@ -1,42 +1,66 @@
-# Axiom Hive / XPII: Master IP & Commercial Valuation Report
+# Axiom Hive / XPII Commercial Planning and Valuation Framework
 
-**Author / Developer:** Nicholas Michael Grossi  
-**Prepared:** August 2026 | **Standard of Value:** Fair Market Value (Pro-Forma)  
-**Premise:** Licensing / Going-Concern Use  
+**Document status:** Preliminary planning framework; not a Fair Market Value opinion, appraisal, investment recommendation, or offer to sell.
+**Version:** 4.0 — controlled public release
+**Review date:** August 12, 2026
 
----
+## 1. Objective and scope
 
-## 1. Executive Summary
+This document defines a disciplined method for evaluating potential commercial pathways for the Axiom Hive / XPII documentation and associated know-how. The asset set described in the project materials consists principally of unpatented specifications, proposed architectures, workflow definitions, and governance concepts.
 
-This report provides a consolidated intellectual property (IP) valuation for the Axiom Hive / XPII specification stack, applying standard appraisal methodologies (**Cost, Market, and Income approaches**) consistent with WIPO and USPAP guidelines [1]. 
+> **Scope boundary:** The supplied materials do not provide verified transaction data, signed licenses, audited revenue, implementation cost records, enforceable intellectual-property rights, or an independent appraisal. They are therefore insufficient to support a stated Fair Market Value, a license price, a royalty rate, a revenue forecast, or an investment valuation.
 
-The asset comprises unpatented know-how, architectural specifications, and governance frameworks. Because the asset has not been reduced to registered IP or deployed under signed commercial licensing contracts, all figures are **pro-forma planning estimates** rather than certified independent appraisals.
+The World Intellectual Property Organization identifies cost, market, and income approaches as common intellectual-property valuation methods; their use depends on the nature of the asset and available evidence.[1] This framework identifies the evidence required to use those approaches responsibly.
 
----
+## 2. Commercial-asset inventory
 
-## 2. Valuation Methodology & Triangulation
+| Asset category | Current documentation status | Commercial relevance | Evidence gap |
+|---|---|---|---|
+| Technical specifications | Drafted and consolidated documentation. | May support consulting, implementation design, or licensing discussions. | Version control, functional requirements, and demonstrated implementation. |
+| Governance framework | Defined concepts, control matrices, and policy proposals. | May support training, advisory, or governance-design services. | Independent review, customer problem validation, and use-case evidence. |
+| Software or prototype | Not established by this framework. | Could support product or implementation revenue if independently evidenced. | Source code, tests, deployment records, security review, and customer evidence. |
+| Patent, trademark, or registered copyright rights | Not established by this framework. | May affect exclusivity, licensing leverage, or transaction structure. | Chain of title, registration records, assignment agreements, and legal review. |
 
-### 2.1 Cost Approach (Valuation Floor)
-*   **Basis:** Cost to reproduce or replace the specification stack (research, drafting, verification, and structuring).
-*   **Estimate:** $3,000–$12,000, based on comparable analyst/consultant drafting time (15–40 hours at $200–$400/hr blended rate). Establishes a valuation floor.
+## 3. Evidence requirements by valuation approach
 
-### 2.2 Market Approach (Licensing & Consulting Benchmarks)
-*   **Basis:** Benchmarking against observable transactions for comparable IT governance and compliance frameworks (e.g., COBIT, ITIL, ISO 20000).
-*   **Indicated Range:** $5,000–$50,000 per licensee (flat fee) plus a 2%–8% royalty on revenue derived from its use, or $8,000–$40,000+ per direct consulting engagement.
+| Approach | What it can evaluate | Minimum evidence before use | Current status |
+|---|---|---|---|
+| **Cost approach** | Cost to recreate or replace identified work products. | Time records, role descriptions, market-rate sources, re-creation scope, and obsolescence analysis. | May support an internal budget estimate; not yet a valuation conclusion. |
+| **Market approach** | Comparable transactions or license arrangements. | Identifiable comparable transactions, transfer terms, rights granted, asset maturity, and adjustment rationale. | No comparable transaction set is provided. |
+| **Income approach** | Risk-adjusted income attributable to a defined asset. | Contracted or supportable forecast, asset contribution analysis, tax treatment, royalty basis, discount rate, and sensitivity analysis. | No verified forecast or operating history is provided. |
 
-### 2.3 Income Approach (Relief-from-Royalty)
-*   **Basis:** Present discounted value of future income streams attributable to the asset.
-*   **Assumptions:** Royalty rate of 2%–8%; risk-adjusted discount rate of 25%–40% (accounting for early-stage, unproven know-how); 3-year projection horizon.
+## 4. Permitted current use
 
----
+Until the evidence gaps are closed, the documentation MAY be used as a preliminary commercial-planning asset. Appropriate current statements include:
 
-## 3. Reconciliation and Indicated Value Range
+- “The project is developing a documented governance and workflow framework for potential consulting, implementation, or licensing discussions.”
+- “Commercial terms, if any, will depend on demonstrated functionality, rights, customer requirements, and negotiated scope.”
+- “Any valuation or pricing requires use-case-specific evidence and appropriate independent review.”
 
-Applying a maturity discount for unpatented know-how, the indicated Fair Market Value under a licensing premise is **$5,000–$50,000 per license** plus a **2%–8% revenue royalty**, or **$8,000–$40,000+ per direct engagement**. 
+The documentation MUST NOT state that it has a determined Fair Market Value, an established market license price, a validated royalty rate, or a proven return on investment.
 
----
+## 5. Valuation-readiness plan
 
-## 4. References
+| ID | Requirement | Acceptance criterion |
+|---|---|---|
+| CV-01 | Define the asset perimeter. | Inventory identifies code, specifications, data, rights, dependencies, and excluded assets. |
+| CV-02 | Establish rights and title. | Contributor agreements, assignments, registrations, and open-source obligations are reviewed by qualified counsel. |
+| CV-03 | Evidence implementation maturity. | Prototype or product artifacts have version history, test records, deployment evidence, and security review. |
+| CV-04 | Validate commercial demand. | Documented customer discovery, pilot evidence, proposal outcomes, or executed agreements are retained. |
+| CV-05 | Build a comparable set. | Each comparable has source, date, rights transferred, maturity, consideration, and adjustment rationale. |
+| CV-06 | Obtain independent review. | A qualified valuation professional or other appropriate reviewer evaluates the intended purpose and standard of value. |
 
-[1]: https://www.wipo.int/en/web/business/ip-valuation "WIPO - Valuing Intellectual Property Assets"
-[2]: https://www.grandviewresearch.com/industry-analysis/custom-software-development-market-report "Grand View Research - Custom Software Market Report"
+## 6. Constraints
+
+The project MUST NOT use this document to:
+
+- represent a planning estimate as a Fair Market Value opinion;
+- represent comparable-framework examples as comparable transactions without documented adjustments;
+- state that unpatented know-how is exclusive, protected, or transferable without rights analysis; or
+- make investment, tax, financial-reporting, or transaction statements without appropriate professional review.
+
+## 7. References
+
+[1] World Intellectual Property Organization. “Valuing Intellectual Property Assets.” *WIPO*, https://www.wipo.int/en/web/business/ip-valuation. Accessed 12 Aug. 2026.
+
+[2] Appraisal Foundation. “USPAP Standards and Guidance.” *The Appraisal Foundation*, https://appraisalfoundation.org/uspaps. Accessed 12 Aug. 2026.
