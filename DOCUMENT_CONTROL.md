@@ -1,30 +1,34 @@
 # Document Control and Publication Status
 
 **Repository:** Axiom Hive / XPII Professional Documents
-**Status date:** August 12, 2026
-**Purpose:** Define the authority order, use boundaries, and update controls for public repository materials.
+**Status date:** August 18, 2026
+**Purpose:** Define authority order, use boundaries, and update controls for public repository materials.
+**Project attribution:** Axiom Hive Technology. Alexis M. Adams and Nicholas Michael Grossi are identified as contributors in the supplied materials. Research assistance: Manus AI. This statement does not determine ownership or rights.
 
 ## 1. Authority order
 
 | Priority | Document | Controlled use |
 |---|---|---|
-| 1 | `01_Current_Technical_Classification_Memorandum/Technical_Classification_Memorandum_Axiom_Hive_XPII.pdf` | Controls use of the HADFI designation and all statements about technical classification, legal evidentiary limits, and assurance boundaries. |
+| 1 | `01_Current_Technical_Classification_Memorandum/Technical_Classification_Memorandum_Axiom_Hive_XPII.pdf` | Controls use of the HADFI designation and statements about technical classification, legal-evidentiary limits, and assurance boundaries. |
 | 2 | `02_Master_Specification_Suite/01_Axiom_Hive_Core_Specification.md` | Controls proposed architecture, defined requirements, and implementation-validation boundaries. |
 | 3 | `02_Master_Specification_Suite/02_Security_and_Compliance_Matrix.md` | Controls security and regulatory reference language. |
-| 4 | `02_Master_Specification_Suite/05_Verification_and_Validation_Report.md` | Controls statements about what documentation review has and has not verified. |
-| 5 | Remaining documents | Supporting planning, research, assessment, or stakeholder materials; they do not override documents 1–4. |
+| 4 | `02_Master_Specification_Suite/05_Verification_and_Validation_Report.md` | Controls statements about what the documentation review has and has not verified. |
+| 5 | `02_Master_Specification_Suite/06_Reference_Implementation_and_Validation_Record.md` | Controls limited statements about the source-tree reference prototype, its bounded test evidence, and known implementation limitations. It does not override documents 1–4. |
+| 6 | Remaining documents | Supporting planning, research, assessment, or stakeholder materials; they do not override documents 1–5. |
 
 ## 2. Current publication status
 
 | Item | Status | Publication rule |
 |---|---|---|
 | Technical classification memorandum | Current | Use for controlled external descriptions of HADFI and assurance limits. |
-| Core specification | Current proposed design | Use only with the stated implementation and validation boundaries. |
-| Security and compliance matrix | Current proposed control matrix | Use only as a planning crosswalk; do not represent it as compliance evidence. |
+| Core specification | Current proposed design | Use only with its stated implementation and validation boundaries. |
+| Security and compliance matrix | Current proposed control matrix | Use as a planning crosswalk; do not represent it as compliance evidence. |
 | Commercial planning framework | Current preliminary planning material | Do not use as an appraisal, price quotation, or investment statement. |
 | Executive brief | Current stakeholder summary | Do not use as a solicitation, forecast, or product-performance statement. |
 | Documentation review and validation plan | Current | Use to define evidence needed before making implementation claims. |
-| Earlier compiled master-suite PDF and earlier release archive | Superseded | Excluded from the public repository because they predate the controlled-document revision. |
+| Reference implementation and validation record | Current bounded prototype record | Use only to describe the named source-tree version, its executed tests, and its stated limitations. |
+| `implementation/axiom-hive-console/` | Current reference-prototype source | Do not deploy or describe as a production service without context-specific review and release evidence. |
+| Earlier compiled master-suite PDF and earlier release archive | Superseded | Excluded because they predate the controlled-document revision. |
 
 ## 3. Public-claim requirements
 
@@ -32,14 +36,18 @@ A public claim about a technical capability, regulatory status, security propert
 
 1. the document and version supporting the claim;
 2. the relevant system boundary and intended use;
-3. whether the statement is a proposed requirement, an implemented control, a test result, or an external assessment;
+3. whether the statement is a proposed requirement, a reference-prototype control, a test result, an implemented production control, or an external assessment;
 4. the evidence location and review date; and
-5. any material limitations or unresolved uncertainty.
+5. material limitations, unresolved uncertainty, and required next review.
 
 ## 4. Prohibited public statements without supporting evidence
 
-The repository MUST NOT be used to state or imply that Axiom Hive / XPII is certified, compliant, secure, safe, legally admissible, deterministic in substantive output, implementation-complete, independently audited, or assigned a Fair Market Value unless the claim is supported by applicable evidence and review.
+The repository MUST NOT be used to state or imply that Axiom Hive / XPII is certified, compliant, secure, safe, legally admissible, deterministic in substantive output, implementation-complete, independently audited, production-ready, or assigned a Fair Market Value unless the claim is supported by applicable evidence and review.
+
+A model-derived draft, validation pass, reviewer decision, hash, signature, audit event, workflow diagram, or framework label does not independently establish truth, legal effect, compliance, or absence of risk.
 
 ## 5. Change control
 
-Material changes to architecture, model configuration, rules, data flows, security controls, payment integrations, legal sources, regulatory dates, commercial evidence, or contributor-rights records SHALL trigger review of the affected controlled document. Superseded public files SHALL be removed or clearly marked before publication.
+Material changes to architecture, model configuration, rules, data flows, security controls, payment integrations, legal sources, regulatory dates, commercial evidence, contributor-rights records, database schema, audit format, state-transition logic, or test evidence SHALL trigger review of the affected controlled document. Source changes that affect the reference prototype SHALL update Document 06 and the current release package before publication.
+
+Public source releases SHALL exclude credentials, environment files, generated dependencies, local runtime logs, payment-credential collection material, real personal data, and unreviewed build artifacts. Superseded files SHALL be removed or clearly marked before publication.
