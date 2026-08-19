@@ -1,2 +1,0 @@
--- No-op migration retained to preserve Drizzle migration metadata after 0004 was corrected.
--- The per-project eventOrder column and unique project/eventOrder constraint are created by 0004.

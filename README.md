@@ -2,7 +2,7 @@
 
 **Project attribution:** Axiom Hive Technology. Alexis M. Adams and Nicholas Michael Grossi are identified as contributors in the supplied materials. Research assistance: Manus AI. Publication does not determine authorship, ownership, licensing, or intellectual-property rights.
 
-This public repository contains a curated, source-controlled Axiom Hive / XPII documentation set and a bounded governance-workflow reference prototype. The materials are organized for technical review, stakeholder discussion, and controlled implementation planning. They are not a product certification, legal opinion, regulatory determination, security attestation, valuation opinion, or evidence-admissibility conclusion.
+This public repository contains a curated, source-controlled Axiom Hive / XPII documentation set. The materials are organized for technical review, stakeholder discussion, and controlled implementation planning. They are not a product certification, legal opinion, regulatory determination, security attestation, valuation opinion, or evidence-admissibility conclusion.
 
 ## Contents
 
@@ -11,32 +11,16 @@ This public repository contains a curated, source-controlled Axiom Hive / XPII d
 | `01_Current_Technical_Classification_Memorandum/` | Current evidence-based technical classification memorandum and editable Typst source. |
 | `02_Master_Specification_Suite/` | Controlled core specification, security/control matrix, commercial-planning framework, executive brief, validation plan, and Document 06 reference-implementation record. |
 | `03_Research_and_Assessment/` | Corrected governance specification and source-controlled research summary. |
-| `implementation/axiom-hive-console/` | TypeScript full-stack reference prototype for project-scoped, policy-governed drafting, review, traceability, and controlled release. |
+| [`cadenmccullan-gamez/axiom-hive-technology`](https://github.com/cadenmccullan-gamez/axiom-hive-technology) | Canonical private implementation repository. This documentation repository contains no executable application copy. |
 | `DOCUMENT_CONTROL.md` | Authority order, publication status, claim boundaries, and change-control requirements. |
 | `releases/` | Current controlled ZIP package and SHA-256 integrity checksum. |
 
 ## Controlled implementation status
 
-The governance console is a **reference prototype**. It implements protected project roles, project-scoped access checks, structured intake, deterministic policy gates, a high-impact pre-generation reviewer gate, optional server-side structured drafting through `invokeLLM`, final human-review approval, integrity-linked audit records, and controlled Markdown/JSON exports. Review `02_Master_Specification_Suite/06_Reference_Implementation_and_Validation_Record.md` for the requirement-to-code mapping, executed test evidence, and known limitations.
+The canonical implementation is maintained separately in the private [`axiom-hive-technology`](https://github.com/cadenmccullan-gamez/axiom-hive-technology) repository. This repository intentionally contains no duplicated application source, executable demonstration, generated template, or deployment configuration.
+ The separation keeps published documentation traceable to a single controlled codebase and prevents documentation archives from being mistaken for an executable release.
 
-> The reference prototype does not establish that Axiom Hive / XPII is secure, safe, compliant, certified, production-ready, legally admissible, or capable of determining substantive truth. It does not include payments, payment credentials, external tool execution, browser automation, autonomous actions, production data ingestion, or regulated-data processing.
-
-## Run the reference prototype locally
-
-The prototype uses Node.js, pnpm, a MySQL-compatible database, and the supported project environment values supplied by its hosting template. Do not commit `.env` files or credentials.
-
-```bash
-cd implementation/axiom-hive-console
-pnpm install
-pnpm drizzle-kit generate
-# Review the generated SQL, then apply it to an approved development database.
-pnpm test
-pnpm check
-pnpm build
-pnpm dev
-```
-
-The deterministic mock adapter is the default route for tests. The optional live drafting path is server-side only and calls `invokeLLM` with a strict output schema and no tool definitions. It should be enabled only under an approved operating policy with appropriate monitoring and cost controls.
+> The documentation set does not establish that Axiom Hive / XPII is secure, safe, compliant, certified, production-ready, legally admissible, or capable of determining substantive truth. Current requirements, test evidence, and known limitations must be reviewed in their controlled documents and the canonical implementation repository.
 
 ## Publication status
 
